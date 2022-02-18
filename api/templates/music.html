@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>transmitir sua música favorita</title>
+    <script type="text/javascript" src="/static/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+<h1>Aplicativo Web de streaming de música Flask</h1>
+<audio controls="controls" autoplay="autoplay"></audio>
+<ul>
+    {% for song in songs %}
+        <li><a href="javascript:void(0);" onclick="playsong('{{song}}')">{{song[:-4]}}</a></li><br>
+    {% endfor %}
+</ul>
+<script type="text/javascript">
+    function playsong(song){
+        $('audio').attr('src', '/static/music/'+song);
+    }
+</script>
+
+</body>
+</html>
